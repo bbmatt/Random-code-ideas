@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Document</title>
+<script type="text/javascript" src="jquery-1.3.2.js"></script>
+<script type="text/javascript">
+    $("document").ready(function() {
+		var width = $(document).width();
+		var imageName = $("img").attr("data-original");
+		var re = new RegExp("(.+)\\.(gif|png|jpg)", "g");
+		
+		if (width < 1000) {
+			var imageName = imageName.replace(re, "$1_hover.$2");
+			$("div").text(imageName);
+			$("img").attr("src", imageName);
+		}
+		
+		if (width > 1000) {
+
+			$("img").attr("src", imageName);
+		}
+		$("div").text(imageName);
+    });
+</script>
+<style type="text/css">
+.a { color: Navy; }
+.b { color: Maroon; }
+</style>
+</head>
+<body>
+<img src="" data-original="test.jpg" />
+<div></div>
+</body>
+</html>
